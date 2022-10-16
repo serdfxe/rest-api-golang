@@ -1,8 +1,12 @@
 package service
 
-import "github.com/serdfxe/rest-api-golang/pkg/repository"
+import (
+	rest "github.com/serdfxe/rest-api-golang/pkg"
+	"github.com/serdfxe/rest-api-golang/pkg/repository"
+)
 
 type Authorization interface {
+	CreateUser(user rest.User) (int, error)
 }
 
 type Admin interface {
@@ -14,5 +18,7 @@ type Service struct {
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: newAuthService(repos.Authorization),
+	}
 }
