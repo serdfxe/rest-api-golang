@@ -24,11 +24,12 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.POST("/sign-in", h.signIn)
 	}
 
-	api := router.Group("/api")
+	api := router.Group("/api", h.userIndentify)
 	{
 		admin := api.Group("/admin")
 		{
 			admin.GET("/all", h.getAll)
+			admin.GET("/myid", h.getMyId)
 		}
 	}
 

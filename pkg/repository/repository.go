@@ -7,6 +7,7 @@ import (
 
 type Authorization interface {
 	CreateUser(user rest.User) (int, error)
+	GetUser(username string, password string) (rest.User, error)
 }
 
 type Admin interface {
