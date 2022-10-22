@@ -1,3 +1,3 @@
 # rest-api-golang
 
-Rest API на golang.
+Скелет Rest API на golang с jwt.
