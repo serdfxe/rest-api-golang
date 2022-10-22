@@ -11,22 +11,22 @@ docker pull postgres:14-alpine
 ```
 
 ```
-docker run --name=db -e POSTGRES_PASSWORD=```314159``` -p 5432:5432 -d --rm postgres:14-alpine
+docker run --name=db -e POSTGRES_PASSWORD=314159 -p 5432:5432 -d --rm postgres:14-alpine
 ```
 
 ## Миграция БД
 
 ```
-migrate -path ./schema -database "postgres://postgres:```314159```@localhost:5432/postgres?sslmode=disable" up
+migrate -path ./schema -database "postgres://postgres:314159@localhost:5432/postgres?sslmode=disable" up
+```
+
+Создать файл .env в корне
+
+```
+DB_PASSWORD=314159
 ```
 
 ## Запуск
-
-Создать файл .env
-
-```
-DB_PASSWORD=```314159```
-```
 
 ```
 go run cmd/main.go
